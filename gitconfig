@@ -1,0 +1,6 @@
+[user]
+	email = e@elliottwillia.ms
+	name = Elliott Williams
+[alias]
+    st = status
+    l = !git --no-pager log --pretty=oneline --abbrev-commit --max-count=10
