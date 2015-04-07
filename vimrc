@@ -74,3 +74,5 @@ let g:tagbar_autofocus = 1
 " Column ruler: highlights the character that goes past the 80th column.
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
+set tw=79
+set formatoptions+=t

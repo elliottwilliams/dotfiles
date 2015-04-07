@@ -45,13 +45,13 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git jira npm rvm osx sublime brew grails sprunge cloudapp)
+plugins=(gitfast git jira npm rvm grails sprunge )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/Library/Python/2.7/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -79,7 +79,6 @@ export PATH="$HOME/bin:$HOME/Library/Python/2.7/bin:/usr/local/bin:/usr/local/sb
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tugboat='rvm 1.9.3-p448 do tugboat'
-alias sshpi='ssh pi -o HostName=`piip`'
 
 export NVM_DIR="/Users/herooftime/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -94,5 +93,5 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/herooftime/.gvm/bin/gvm-init.sh" ]] && source "/Users/herooftime/.gvm/bin/gvm-init.sh"
 
-PERL_MB_OPT="--install_base \"/Users/herooftime/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/herooftime/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"/home/herooftime/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/herooftime/perl5"; export PERL_MM_OPT;
