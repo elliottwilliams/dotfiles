@@ -1,0 +1,40 @@
+set imap_user = "e@elliottwillia.ms"
+set imap_pass = "kicmogmaouooegzs"
+set smtp_url  = "smtp://e@elliottwillia.ms@smtp.gmail.com:587/"
+set smtp_pass = "kicmogmaouooegzs"
+set from = "e@elliottwillia.ms"
+set realname = "Elliott Williams"
+
+# configure sending from purdue.edu address
+alternates "(e@elliottwillia\.ms)|(will1217@purdue\.edu)"
+set use_from
+set reverse_name
+
+macro index \e1 ":set from=\"e@elliottwillia.ms\"\n"  "Send from e@elliottwillia.ms"
+macro index \e2 ":set from=\"will1217@purdue.edu\"\n" "Send from will1217@purdue.edu"
+
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+
+set move = no
+set timeout = 15
+
+# gmail-y keyboard shortcuts
+bind editor <space> noop
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+
+# url extractor
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
