@@ -1,0 +1,40 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# suit to get started fast.
+
+[general]
+ui = ttyui
+accounts = elliottwilliams 
+
+[Account elliottwilliams]
+localrepository = elliottwilliams-local
+remoterepository = elliottwilliams-remote 
+autorefresh = 5
+quick = 10
+
+# sync only the last 6-mo-ish of messages
+maxage = 540 
+
+[Repository elliottwilliams-local]
+type = Maildir
+localfolders = ~/Mail/elliottwilliams
+
+[Repository elliottwilliams-remote]
+type = Gmail 
+remoteuser = e@elliottwillia.ms
+remotepass = kicmogmaouooegzs
+keepalive = 60
+holdconnectionopen = yes
+nametrans = lambda foldername: re.sub ('^\[gmail\]', 'gmail',
+                               re.sub ('sent_mail', 'sent',
+                               re.sub ('starred', 'flagged',
+                               re.sub (' ', '_', foldername.lower()))))
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+
+# generate muttrc fragment of mailboxes
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = " "
+footer = "\n"
