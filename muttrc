@@ -1,9 +1,13 @@
-set imap_user = "e@elliottwillia.ms"
-set imap_pass = "kicmogmaouooegzs"
-set smtp_url  = "smtp://e@elliottwillia.ms@smtp.gmail.com:587/"
-set smtp_pass = "kicmogmaouooegzs"
-set from = "e@elliottwillia.ms"
-set realname = "Elliott Williams"
+set mbox_type   = Maildir
+set sendmail    = /usr/bin/msmtp
+
+set folder      = ~/Mail/elliottwilliams
+source ~/.mutt/mailboxes
+
+set spoolfile   = "+inbox"
+#set mbox        = "+/All Mail"    # enable to auto-archive
+set postponed   = "+gmail.drafts"
+unset record
 
 # configure sending from purdue.edu address
 alternates "(e@elliottwillia\.ms)|(will1217@purdue\.edu)"
@@ -13,26 +17,74 @@ set reverse_name
 macro index \e1 ":set from=\"e@elliottwillia.ms\"\n"  "Send from e@elliottwillia.ms"
 macro index \e2 ":set from=\"will1217@purdue.edu\"\n" "Send from will1217@purdue.edu"
 
+mailboxes +inbox
 
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
-set postponed = "+[Gmail]/Drafts"
+# gmail-esque macros
 
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
-set certificate_file = ~/.mutt/certificates
+macro index D \
+    "<save-message>+gmail.trash<enter>" \
+    "move message to the trash"
 
-set move = no
-set timeout = 15
+macro index S \
+    "<save-message>+gmail.spam<enter>" \
+    "mark message as spam"
+
+bind editor <space> noop
+macro index,pager y \
+    "<save-message>=+gmail.all_mail<enter><enter>" \
+    "Archive"
+macro index,pager d \
+    "<save-message>=+gmail.trash<enter><enter>" \
+    "send message to trash"
+macro index gi \
+    "<change-folder>=+inbox<enter>" \
+    "Go to inbox"
+macro index gs \
+    "<change-folder>=+gmail.starred<enter>" \
+    "Go to starred messages"
+macro index gd \
+    "<change-folder>=+gmail.drafts<enter>" \
+    "Go to drafts"
+
+# main options
+set from = "e@elliottwillia.ms"
+set realname = "Elliott Williams"
+set mail_check = 0
+set envelope_from
+
+unset move
+set delete
+unset confirmappend
+set quit
+unset mark_old
+
+# sort/threading
+set sort      = threads
+set sort_aux  = reverse-last-date-received
+set sort_re
+
+
+set pager_index_lines = 8
+set pager_context     = 0
+set pager_stop
+set menu_scroll
+set smart_wrap
+set tilde
+
+# composing
+set fcc_attach
+unset mime_forward
+set forward_format = "Fwd: %s"
+set include
+set forward_quote
+
+ignore *                               # first, ignore all headers
+unignore from: to: cc: date: subject:  # then, show only these
+hdr_order from: to: cc: date: subject: # and in this order
+unset markers
+
 
 # gmail-y keyboard shortcuts
-bind editor <space> noop
-macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 
 
 # url extractor
