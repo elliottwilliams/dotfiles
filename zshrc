@@ -81,6 +81,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:
 alias tugboat='rvm 1.9.3-p448 do tugboat'
 alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
+alias t='tmux a'
 
 export NVM_DIR="/Users/herooftime/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
