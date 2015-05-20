@@ -31,6 +31,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'lervag/vim-latex'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/workflowish'
+Plugin 'groenewege/vim-less'
 
 
 " All of your Plugins must be added before the following line
@@ -58,6 +61,14 @@ set autoindent
 set nowrap
 set backspace=2
 set mouse=a
+set rnu
+
+" MacVim stuff
+if has("gui_running")
+  set guifont=Source\ Code\ Pro:h12
+  set background=dark
+  colorscheme solarized
+endif
 
 "set rtp+=/Users/herooftime/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 "python from powerline.vim import setup as powerline_setup
