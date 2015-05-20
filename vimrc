@@ -29,9 +29,11 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins I (Elliott) added
 Plugin 'lervag/vim-latex'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 Plugin 'majutsushi/tagbar'
-
+Plugin 'kien/ctrlp.vim'
+Plugin 'szw/vim-tags'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,31 +50,46 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set nu
-set ts=2
-set shiftwidth=2
-set softtabstop=2
+set rnu
+set ts=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 syntax enable
 set autoindent
 set nowrap
-set backspace=2
 set mouse=a
 
-"set rtp+=/Users/herooftime/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+" make backspace do the right thing
+set backspace=indent,eol,start
 
+" search
+set showmatch
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" color scheme
+set background=dark
+colorscheme solarized
+
+" neocomplete setup
 let g:neocomplete#enable_at_startup = 1
 
-" Tagbar setup 
+" tagbar setup 
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
-" Column ruler: highlights the character that goes past the 80th column.
+" tags
+set tags=tags;/ " will search for 'tags' file from current directory to /
+let g:ctrlp_max_files = 0
+
+" column ruler: highlights the character that goes past the 80th column.
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-set tw=79
-set formatoptions+=t
+"call matchadd('ColorColumn', '\%81v', 100)
+set colorcolumn=81
+set winwidth=84
+"set tw=79
+"set formatoptions+=t
