@@ -34,6 +34,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'szw/vim-tags'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/workflowish'
+Plugin 'groenewege/vim-less'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,6 +61,12 @@ syntax enable
 set autoindent
 set nowrap
 set mouse=a
+set rnu
+
+" MacVim 
+if has("gui_running")
+  set guifont=Source\ Code\ Pro:h12
+endif
 
 " make backspace do the right thing
 set backspace=indent,eol,start

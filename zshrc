@@ -45,13 +45,17 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git jira npm rvm grails sprunge tmux)
+plugins=(gitfast git sprunge jira npm rvm osx grails sprunge tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+# Tmux plugin configuration
+ZSH_TMUX_AUTOSTART=true
+
+
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -82,6 +86,7 @@ alias tugboat='rvm 1.9.3-p448 do tugboat'
 alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
+alias mutt='cd ~/Desktop && mutt'
 
 export NVM_DIR="/Users/herooftime/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

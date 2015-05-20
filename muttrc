@@ -1,92 +1,139 @@
-set mbox_type   = Maildir
-set sendmail    = /usr/bin/msmtp
+# Paths --------------------------------
+set folder           = ~/Mail/e-elliottwillia.ms
+set alias_file       = ~/.mutt/alias    
+set header_cache     = ~/.mutt/cache/headers      
+set message_cachedir = ~/.mutt/cache/bodies          
+set certificate_file = ~/.mutt/certificates          
+set mailcap_path     = ~/.mutt/mailcap      
+set tmpdir           = ~/.mutt/temp
+set signature        = ~/.mutt/sig   
 
-set folder      = ~/Mail/elliottwilliams
-source ~/.mutt/mailboxes
+# Basic Options  -----------------------
+set wait_key = no        # shut up, mutt
+set mbox_type = Maildir  # mailbox type
+set timeout = 3          # idle time before scanning
+set mail_check = 0       # minimum time between scans
+unset move               # gmail does that
+set delete               # don't ask, just do
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
 
-set spoolfile   = "+inbox"
-#set mbox        = "+/All Mail"    # enable to auto-archive
-set postponed   = "+gmail.drafts"
+# Colorscheme
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+
+# Status Bar ---------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Header Options -----------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+# Account Settings ---------------------
+set spoolfile = "+INBOX"                # Default inbox
+alternates e@elliottwillia.ms \
+           will1217@purdue.edu
+source $alias_file                      # load predefined aliases
+source ~/.mutt/mailboxes                # Show these mailboxes in the sidebar
+
+## Other special folders
+set mbox        = "+[Gmail].All Mail"
+set postponed   = "+[Gmail].Drafts"
+
+# Sending ------------------------------
+set from     = "e@elliottwillia.ms"
+set sendmail = "/usr/local/bin/msmtp"
+set sendmail_wait = 0
 unset record
 
-# configure sending from purdue.edu address
-alternates "(e@elliottwillia\.ms)|(will1217@purdue\.edu)"
-set use_from
-set reverse_name
+## Configure sending from multiple addresses
+macro index,compose \e1 ":set from=\"e@elliottwillia.ms\"\n"  "Send from e@elliottwillia.ms"
+macro index,compose \e2 ":set from=\"will1217@purdue.edu\"\n" "Send from will1217@purdue.edu"
 
-macro index \e1 ":set from=\"e@elliottwillia.ms\"\n"  "Send from e@elliottwillia.ms"
-macro index \e2 ":set from=\"will1217@purdue.edu\"\n" "Send from will1217@purdue.edu"
+# Index View Options -------------------
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
-mailboxes +inbox
+# Index Key Bindings -------------------
+bind index o        display-message
+bind index gg       first-entry
+bind index G        last-entry
 
-# gmail-esque macros
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
 
-macro index D \
-    "<save-message>+gmail.trash<enter>" \
-    "move message to the trash"
+# Compose View Options -----------------
+set realname = "Elliott Williams"    # who am i?
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
 
-macro index S \
-    "<save-message>+gmail.spam<enter>" \
-    "mark message as spam"
+# Contacts query
+#set query_command = "~/.mutt/icloud-addressbook-query/icloud-addressbook-query.py '%s'"
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
 
-bind editor <space> noop
-macro index,pager y \
-    "<save-message>=+gmail.all_mail<enter><enter>" \
-    "Archive"
-macro index,pager d \
-    "<save-message>=+gmail.trash<enter><enter>" \
-    "send message to trash"
-macro index gi \
-    "<change-folder>=+inbox<enter>" \
-    "Go to inbox"
-macro index gs \
-    "<change-folder>=+gmail.starred<enter>" \
-    "Go to starred messages"
-macro index gd \
-    "<change-folder>=+gmail.drafts<enter>" \
-    "Go to drafts"
+# Pager View Options --------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
 
-# main options
-set from = "e@elliottwillia.ms"
-set realname = "Elliott Williams"
-set mail_check = 0
-set envelope_from
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
 
-unset move
-set delete
-unset confirmappend
-set quit
-unset mark_old
+# Pager Key Bindings --------------------
+#bind pager k  previous-line
+#bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
 
-# sort/threading
-set sort      = threads
-set sort_aux  = reverse-last-date-received
-set sort_re
+bind pager R  group-reply
 
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index \Csa "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index \esi "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 set pager_index_lines = 8
 set pager_context     = 0
 set pager_stop
 set menu_scroll
-set smart_wrap
 set tilde
 
-# composing
-set fcc_attach
-unset mime_forward
-set forward_format = "Fwd: %s"
-set include
-set forward_quote
-
-ignore *                               # first, ignore all headers
-unignore from: to: cc: date: subject:  # then, show only these
-hdr_order from: to: cc: date: subject: # and in this order
-unset markers
-
-
-# gmail-y keyboard shortcuts
-
-
-# url extractor
-macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
