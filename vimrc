@@ -36,6 +36,8 @@ Plugin 'szw/vim-tags'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/workflowish'
 Plugin 'groenewege/vim-less'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,3 +103,17 @@ set colorcolumn=81
 set winwidth=84
 "set tw=79
 "set formatoptions+=t
+
+" vim-airline statusline configuration
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
