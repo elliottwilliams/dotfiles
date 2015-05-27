@@ -45,7 +45,7 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast git sprunge jira npm rvm osx grails sprunge tmux)
+plugins=(git sprunge osx sprunge tmux virtualenv-prompt)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,6 +54,13 @@ source $ZSH/oh-my-zsh.sh
 # Tmux plugin configuration
 ZSH_TMUX_AUTOSTART=true
 
+# Disable window titles if this is a tmux shell
+[[ $TERM == screen* ]] && export DISABLE_AUTO_TITLE=true
+
+# Adjust prompt to include virtualenv
+export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%}'
+export ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
+export ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -78,15 +85,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/local/bin:/
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias tugboat='rvm 1.9.3-p448 do tugboat'
 alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
 alias mutt='cd ~/Desktop && mutt'
+alias reagent='. ~/.ssh/latestagent'
 
 export NVM_DIR="/Users/herooftime/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
