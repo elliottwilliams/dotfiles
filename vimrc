@@ -55,15 +55,19 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set rnu
-set ts=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 syntax enable
-set autoindent
 set nowrap
 set mouse=a
-set rnu
+
+" Indentation
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set autoindent
+set copyindent
+set smartindent
+
 
 " MacVim 
 if has("gui_running")
