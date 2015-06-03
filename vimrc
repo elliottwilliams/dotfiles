@@ -38,6 +38,9 @@ Plugin 'vim-scripts/workflowish'
 Plugin 'groenewege/vim-less'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/mako.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/ShowMarks'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,7 +64,7 @@ set mouse=a
 
 " Indentation
 set tabstop=4
-set softtabstop=0
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
@@ -84,6 +87,12 @@ set smartcase
 set hlsearch
 set incsearch
 
+" make spacebar highlight all occurances of word under cursor
+nmap <Space> *N
+
+" make backslash clear any highlights
+nmap \ :noh<CR>
+
 " color scheme
 set background=dark
 colorscheme solarized
@@ -92,14 +101,21 @@ colorscheme solarized
 let g:neocomplete#enable_at_startup = 1
 
 " tagbar setup 
-nmap <F8> :TagbarToggle<CR>
+map <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
+
+" NERDTree setup
+map <F7> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc']
+let NERDTreeWinSize=63
 
 " tags
 set tags=tags;/ " will search for 'tags' file from current directory to /
 let g:ctrlp_max_files = 0
 
+" ignore files and directories
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " column ruler: highlights the character that goes past the 80th column.
 highlight ColorColumn ctermbg=magenta
 "call matchadd('ColorColumn', '\%81v', 100)
@@ -121,3 +137,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" disable syntastic by default. use C-w + E to check syntax
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+" syntax associations
+au BufNewFile,BufRead *.mako setlocal syntax=mako

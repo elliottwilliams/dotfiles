@@ -45,7 +45,7 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sprunge osx sprunge tmux virtualenv-prompt)
+plugins=(gitfast sprunge osx sprunge tmux virtualenv-prompt)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 ZSH_TMUX_AUTOSTART=true
 
 # Disable window titles if this is a tmux shell
-[[ $TERM == screen* ]] && export DISABLE_AUTO_TITLE=true
+#[[ $TERM == screen* ]] && export DISABLE_AUTO_TITLE=true
 
 # Adjust prompt to include virtualenv
 export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%}'
