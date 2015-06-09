@@ -73,6 +73,8 @@ bind index R        group-reply
 bind index <tab>    sync-mailbox
 bind index <space>  collapse-thread
 
+macro index D dk "delete and move to the previous undeleted message"
+
 # Compose View Options -----------------
 set realname = "Elliott Williams"    # who am i?
 set envelope_from                    # which from?
@@ -90,12 +92,6 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-# Contacts query
-#set query_command = "~/.mutt/icloud-addressbook-query/icloud-addressbook-query.py '%s'"
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-bind editor <Tab> complete-query
-bind editor ^T    complete
-
 # Pager View Options --------------------
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
@@ -108,14 +104,12 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
 
 # Pager Key Bindings --------------------
-#bind pager k  previous-line
-#bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
-
 bind pager R  group-reply
 
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
+macro pager D dk "delete and move to the previous undeleted message"
 
 # View attachments properly.
 bind attach <return> view-mailcap
