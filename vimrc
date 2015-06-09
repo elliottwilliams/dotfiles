@@ -69,6 +69,10 @@ nmap <space> *N
 " make backslash clear any highlights
 "nmap \ :noh<CR>
 
+" easier buffer switching than :bn :bp
+nmap <Tab>   :bn<CR>
+nmap <S-Tab> :bp<CR>
+
 " color scheme
 set background=dark
 colorscheme solarized
