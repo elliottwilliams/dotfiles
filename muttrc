@@ -92,13 +92,6 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-# Contacts query
-#set query_command = "~/.mutt/icloud-addressbook-query/icloud-addressbook-query.py '%s'"
-#set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-#set query_command = "contacts %s"
-#bind editor <Tab> complete-query
-#bind editor ^T    complete
-
 # Pager View Options --------------------
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
@@ -111,8 +104,6 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
 
 # Pager Key Bindings --------------------
-#bind pager k  previous-line
-#bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
