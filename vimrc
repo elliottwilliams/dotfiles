@@ -15,9 +15,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'airblade/vim-gitgutter'
 
 " Syntax definition plugins
 Plugin 'lervag/vim-latex'
@@ -66,7 +67,7 @@ set incsearch
 nmap <space> *N
 
 " make backslash clear any highlights
-nmap \ :noh<CR>
+"nmap \ :noh<CR>
 
 " color scheme
 set background=dark
@@ -125,28 +126,15 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " syntax associations
 au BufNewFile,BufRead *.mako setlocal syntax=mako
-
-" MiniBufExplorer configuration
-map <Leader>mbe :MBEOpen<cr>
-map <Leader>mbc :MBEClose<cr>
-map <Leader>mbt :MBEToggle<cr>
-
-" Mappings to access buffers (don't use "\p" because a
-" delay before pressing "p" would accidentally paste).
-" \b \f \l : go back/forward/last-used
-" \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>l :e#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
-nnoremap <TAB>     :bn<CR>
-nnoremap <S-TAB>   :bp<CR>
+"
+" tabline config
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_tabs = 1
+"let g:airline#extensions#tabline#tab_nr_type = 1
+"let g:airline#extensions#tabline#show_tab_nr = 1
+"let g:airline#extensions#tabline#show_buffers = 1
+"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline#extensions#tabline#buffer_min_count = 1
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+"let g:airline#extensions#tabline#show_close_button = 0
+"let g:airline#extensions#tabline#buffer_nr_show = 0
