@@ -1,0 +1,5 @@
+# host-specific zsh config
+
+alias lsrc='lsrc -B YELP-EMW'
+alias mkrc='mkrc -B YELP-EMW'
+alias rcup='rcup -B YELP-EMW'
