@@ -1,0 +1,3 @@
+# host-specific zsh config
+
+alias reagent='. ~/.ssh/latestagent'
