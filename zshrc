@@ -86,25 +86,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/local/bin:/
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias tugboat='rvm 1.9.3-p448 do tugboat'
 alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
 alias mutt='cd ~/Desktop && mutt'
-alias reagent='. ~/.ssh/latestagent'
-
-export NVM_DIR="/Users/herooftime/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export EDITOR=vim
-export JIRA_URL="https://issues.openmrs.org"
 
 # url encode and decode
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/herooftime/.gvm/bin/gvm-init.sh" ]] && source "/Users/herooftime/.gvm/bin/gvm-init.sh"
-
-PERL_MB_OPT="--install_base \"/home/herooftime/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/herooftime/perl5"; export PERL_MM_OPT;
