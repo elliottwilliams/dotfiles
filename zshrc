@@ -54,8 +54,10 @@ source $ZSH/oh-my-zsh.sh
 # Tmux plugin configuration
 ZSH_TMUX_AUTOSTART=true
 
-# Disable window titles if this is a tmux shell
-#[[ $TERM == screen* ]] && export DISABLE_AUTO_TITLE=true
+# If this is a tmux shell, load tmux-specific functions
+if [ -n "$TMUX" ]; then
+    source ~/.tmux/functions
+fi
 
 # Adjust prompt to include virtualenv
 export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%}'
@@ -68,18 +70,14 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/local/bin:/
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Make ctrl-p behave like up arrow
+bindkey "^P" up-line-or-search
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -91,14 +89,9 @@ alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
 alias mutt='cd ~/Desktop && mutt'
-alias reagent='. ~/.ssh/latestagent'
-
-export NVM_DIR="/Users/herooftime/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export EDITOR=vim
-export JIRA_URL="https://issues.openmrs.org"
+export JIRA_URL="https://jira.yelpcorp.com"
 
 # url encode and decode
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'

@@ -1,0 +1,13 @@
+#!/bin/zsh
+function reagent {
+    . ~/.ssh/latestagent
+}
+
+function rename {
+    if [ -n "$1" ]; then
+        tmux set allow-rename off
+        tmux renamew $1
+    else
+        tmux set allow-rename on
+    fi
+}
