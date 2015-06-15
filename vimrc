@@ -8,7 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'szw/vim-tags'
 Plugin 'altercation/vim-colors-solarized'
@@ -46,7 +46,6 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set copyindent
-set smartindent
 
 " MacVim-specific 
 if has("gui_running")
@@ -69,9 +68,15 @@ nmap <space> *N
 " make backslash clear any highlights
 "nmap \ :noh<CR>
 
-" easier buffer switching than :bn :bp
+" fast buffer switching 
 nmap <Tab>   :bn<CR>
 nmap <S-Tab> :bp<CR>
+nnoremap <Leader>l :e#<CR>
+nnoremap <leader>q :Bclose<CR>
+
+" choose buffer easily from buffers menu
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F6> :CtrlPBuffer<CR>
 
 " color scheme
 set background=dark
@@ -140,5 +145,9 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 "let g:airline#extensions#tabline#buffer_min_count = 1
 "let g:airline#extensions#tabline#buffer_idx_mode = 1
-"let g:airline#extensions#tabline#show_close_button = 0
-"let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#buffer_nr_show = 0
+
+" gitgutter config - prevent it from lagging vim on buffer switch
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
