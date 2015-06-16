@@ -19,6 +19,7 @@ Plugin 'vim-scripts/TaskList.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'kshenoy/vim-signature'
 
 " Syntax definition plugins
 Plugin 'lervag/vim-latex'
