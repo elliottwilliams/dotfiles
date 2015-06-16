@@ -1,6 +1,0 @@
-# host-specific zsh configuration
-
-alias jq='jq -M' # because jq coloring doesn't seem to work with solarized :(
-alias reagent='. ~/.ssh/latestagent'
-export NVM_DIR="/nail/home/emw/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
