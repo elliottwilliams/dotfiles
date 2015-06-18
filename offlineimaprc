@@ -11,6 +11,7 @@ fsync = false
 localrepository = elliottwilliams-local
 remoterepository = elliottwilliams-remote 
 status_backend = sqlite
+socktimeout = 30
 #autorefresh = 5
 #quick = 10
 
