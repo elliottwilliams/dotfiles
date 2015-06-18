@@ -8,18 +8,17 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'szw/vim-tags'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/TaskList.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kshenoy/vim-signature'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
 
 " Syntax definition plugins
 Plugin 'lervag/vim-latex'
@@ -76,7 +75,8 @@ nnoremap <Leader>l :e#<CR>
 nnoremap <leader>q :Bclose<CR>
 
 " choose buffer easily from buffers menu
-nnoremap <F5> :buffers<CR>:buffer<Space>
+"nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F5> :BufExplorer<CR>
 nnoremap <F6> :CtrlPBuffer<CR>
 
 " color scheme
@@ -88,7 +88,7 @@ let g:neocomplete#enable_at_startup = 1
 
 " tagbar setup 
 map <F8> :TagbarToggle<CR>
-let g:tagbar_autoclose = 1
+let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
 
 " NERDTree setup
@@ -98,6 +98,10 @@ let NERDTreeWinSize=40
 
 " tags
 set tags=tags;/ " will search for 'tags' file from current directory to /
+nnoremap <c-]> g<c-]>   " swap tag jump commands to show a menu on multiple tags
+vnoremap <c-]> g<c-]>
+nnoremap g<c-]> <c-]>
+vnoremap g<c-]> <c-]>
 
 " ctrlp config -- file finder
 let g:ctrlp_max_files = 0
