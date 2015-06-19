@@ -50,6 +50,7 @@ set copyindent
 " MacVim-specific 
 if has("gui_running")
   set guifont=Sauce\ Code\ Powerline:h13
+  set guioptions-="rRlLb"
 endif
 
 " make backspace do the right thing
