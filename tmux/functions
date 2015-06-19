@@ -11,3 +11,5 @@ function rename {
         tmux set allow-rename on
     fi
 }
+
+alias bye='clear && tmux clear-history'
