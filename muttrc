@@ -1,5 +1,4 @@
 # Paths --------------------------------
-set folder           = ~/Mail/e-elliottwillia.ms
 set alias_file       = ~/.mutt/alias    
 set header_cache     = ~/.mutt/cache/headers      
 set message_cachedir = ~/.mutt/cache/bodies          
@@ -7,6 +6,13 @@ set certificate_file = ~/.mutt/certificates
 set mailcap_path     = ~/.mutt/mailcap      
 set tmpdir           = ~/.mutt/temp
 set signature        = ~/.mutt/sig   
+
+# Accounts -----------------------------
+source ~/.mutt/account-elliottwilliams
+folder-hook e-elliottwillia.ms/*    source ~/.mutt/account-elliottwilliams
+folder-hook elliott-openmrs.org/*   source ~/.mutt/account-openmrs
+macro index ge  <change-folder>~/Mail/e-elliottwillia.ms/INBOX
+macro index go  <change-folder>~/Mail/elliott-openmrs.org/INBOX
 
 # Basic Options  -----------------------
 set wait_key = no        # shut up, mutt
@@ -36,8 +42,6 @@ hdr_order from: to: cc: date: subject:  # and in this order
 
 # Account Settings ---------------------
 set spoolfile = "+INBOX"                # Default inbox
-alternates e@elliottwillia.ms \
-           will1217@purdue.edu
 source $alias_file                      # load predefined aliases
 source ~/.mutt/mailboxes                # Show these mailboxes in the sidebar
 
@@ -46,14 +50,9 @@ set mbox        = "+[Gmail].All Mail"
 set postponed   = "+[Gmail].Drafts"
 
 # Sending ------------------------------
-set from     = "e@elliottwillia.ms"
 set sendmail = "/usr/local/bin/msmtp"
 set sendmail_wait = 0
 unset record
-
-## Configure sending from multiple addresses
-macro index,compose \e1 ":set from=\"e@elliottwillia.ms\"\n"  "Send from e@elliottwillia.ms"
-macro index,compose \e2 ":set from=\"will1217@purdue.edu\"\n" "Send from will1217@purdue.edu"
 
 # Index View Options -------------------
 set date_format = "%m/%d"

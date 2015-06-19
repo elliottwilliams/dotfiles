@@ -3,7 +3,7 @@
 
 [general]
 ui = ttyui
-accounts = elliottwilliams 
+accounts = elliottwilliams,openmrs
 pythonfile = ~/.mutt/offlineimap.py
 fsync = false
 
@@ -14,6 +14,12 @@ status_backend = sqlite
 socktimeout = 30
 #autorefresh = 5
 #quick = 10
+
+[Account openmrs]
+localrepository = openmrs-local
+remoterepository = openmrs-remote 
+status_backend = sqlite
+socktimeout = 30
 
 # sync only the last 3-mo-ish of messages
 maxage = 90 
@@ -26,6 +32,29 @@ localfolders = ~/Mail/e-elliottwillia.ms
 type = Gmail 
 remoteuser = e@elliottwillia.ms
 remotepasseval = get_keychain_pass(account="e@elliottwillia.ms", server="imap.gmail.com")
+realdelete = no
+sslcacertfile = ~/.offlineimap/Certificates.pem
+maxconnection = 1
+nametrans = lambda folder: {'drafts': '[Gmail].Drafts',
+                            'sent':   '[Gmail].Sent Mail',
+                            'flagged':'[Gmail].Starred',
+                            'trash':  '[Gmail].Trash',
+                            'archive':'[Gmail].All Mail',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail].Trash',
+                                             'gmail.important',
+                                             'gmail.spam',
+                                             '[Gmail].Chats',
+                                            ]
+
+[Repository openmrs-local]
+type = Maildir
+localfolders = ~/Mail/elliott-openmrs.org
+
+[Repository openmrs-remote]
+type = Gmail 
+remoteuser = elliott@openmrs.org
+remotepasseval = get_keychain_pass(account="elliott@openmrs.org", server="imap.gmail.com")
 realdelete = no
 sslcacertfile = ~/.offlineimap/Certificates.pem
 maxconnection = 1
