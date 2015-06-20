@@ -131,13 +131,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
 
-" disable syntastic by default. use C-w + E to check syntax
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+let g:syntastic_python_checkers = ['pep8']
+let g:syntastic_python_pep8_args = ['--ignore=E501']
 
 " syntax associations
 au BufNewFile,BufRead *.mako setlocal syntax=mako
