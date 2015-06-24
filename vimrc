@@ -114,9 +114,7 @@ let g:ctrlp_lazy_update = 1 " try to reduce lagginess in ym
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " column ruler: highlights the character that goes past the 80th column.
-highlight ColorColumn ctermbg=magenta
-"call matchadd('ColorColumn', '\%81v', 100)
-set colorcolumn=81
+set colorcolumn=81,131
 set winwidth=84
 "set tw=79
 "set formatoptions+=t
