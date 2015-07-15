@@ -60,7 +60,7 @@ if [ -n "$TMUX" ]; then
 fi
 
 # Adjust prompt to include virtualenv
-export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)%{$reset_color%}'
+export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)$Y_SANDBOX_PROMPT_SUFFIX%{$reset_color%}'
 export ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
 export ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 
