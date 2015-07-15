@@ -6,7 +6,8 @@ let b:pyident_nested_paren = '&sw'
 " open all folds by default
 exec "normal zR"
 
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_checkers = ['pyflakes']
+let b:syntastic_checkers = ['flake8']
+let b:syntastic_python_flake8_show_pep8='true'
+let b:syntastic_python_flake8_max_line_length='131'
 
 set foldlevelstart=20
