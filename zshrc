@@ -51,9 +51,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Tmux plugin configuration
-ZSH_TMUX_AUTOSTART=true
-
 # If this is a tmux shell, load tmux-specific functions
 if [ -n "$TMUX" ]; then
     source ~/.tmux/functions
