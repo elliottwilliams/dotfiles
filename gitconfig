@@ -5,5 +5,6 @@
     st = status
     l = !git --no-pager log --pretty=oneline --abbrev-commit --max-count=10
     branchname = rev-parse --abbrev-ref HEAD
+    diffstat = !git --no-pager diff --stat
 [push]
 	default = simple
