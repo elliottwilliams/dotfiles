@@ -39,6 +39,7 @@ set mouse=a                 " enable mouse mode
 set foldlevelstart=20       " auto-unfold up to 20 level of folds
 set hidden                  " allows buffers to be hidden w/o writing changes
 let g:mapleader=","           " it's better mapped to here
+set encoding=utf-8
 
 " Indentation
 set tabstop=4
@@ -89,7 +90,7 @@ highlight clear SignColumn  " something's been messing with the sign column
 
 " tagbar setup 
 map <F8> :TagbarToggle<CR>
-let g:tagbar_autoclose = 1
+let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
 
 " NERDTree setup
