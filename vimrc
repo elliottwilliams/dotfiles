@@ -19,6 +19,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'wesQ3/vim-windowswap'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -81,6 +82,10 @@ nnoremap <leader>m :CtrlPBuffer<CR>
 " choose buffer easily from buffers menu
 nmap <F5> :BufExplorer<CR>
 nmap <F6> :CtrlPBuffer<CR>
+
+" close windows easily
+nnoremap <leader>c :close<CR>
+nnoremap <leader>C :Bclose<CR> :close<CR>
 
 " color scheme
 set background=dark
