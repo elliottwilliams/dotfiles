@@ -1,0 +1,9 @@
+# host-specific zsh config
+
+export NVM_DIR="/Users/herooftime/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# display tmux header if not tmuxxed
+if [ -z "$TMUX" ]; then
+    source ~/.local/bin/tmux-sessions-header
+fi
