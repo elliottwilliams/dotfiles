@@ -65,7 +65,10 @@ export ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 precmd() { print "" }
 
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/texbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
+#
+# include local man files
+export MANPATH=$HOME/include/man:$HOME/include/share/man:$MANPATH
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
