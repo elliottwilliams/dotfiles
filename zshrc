@@ -61,6 +61,9 @@ export PROMPT='λ %~/ $(git_prompt_info)$(virtualenv_prompt_info)$Y_SANDBOX_PROM
 export ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
 export ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 
+# I like whitespace. Add a newline before the prompt.
+precmd() { print "" }
+
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/share/python:/usr/texbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 

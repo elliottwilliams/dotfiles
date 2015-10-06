@@ -10,7 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -83,8 +83,7 @@ nmap <F5> :BufExplorer<CR>
 nmap <F6> :CtrlPBuffer<CR>
 
 " color scheme
-set background=dark
-colorscheme solarized
+colors zenburn
 highlight clear SignColumn  " something's been messing with the sign column
                             " color...might be removable in the future
 
