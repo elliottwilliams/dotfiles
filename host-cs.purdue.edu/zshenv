@@ -1,8 +1,3 @@
 alias lsrc='lsrc -B cs.purdue.edu'
 alias mkrc='mkrc -B cs.purdue.edu'
 alias rcup='rcup -B cs.purdue.edu'
-
-# display tmux header if not tmuxxed
-if [ -z "$TMUX" ]; then
-    source ~/.local/bin/tmux-sessions-header
-fi

@@ -12,8 +12,3 @@ export JIRA_URL="https://issues.openmrs.org"
 
 PERL_MB_OPT="--install_base \"/home/herooftime/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/herooftime/perl5"; export PERL_MM_OPT;
-
-# display tmux header if not tmuxxed
-if [ -z "$TMUX" ]; then
-    source ~/bin/tmux-sessions-header
-fi
