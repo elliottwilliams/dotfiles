@@ -68,7 +68,7 @@ export MANPATH=$HOME/include/man:$HOME/include/share/man:$MANPATH
 
 # display tmux header if not tmuxxed
 if [ -z "$TMUX" ]; then
-    source ~/bin/tmux-sessions-header
+    source `which tmux-sessions-header`
 fi
 
 # You may need to manually set your language environment
