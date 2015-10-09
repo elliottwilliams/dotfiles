@@ -129,7 +129,7 @@ set winwidth=84
 "set formatoptions+=t
 
 " vim-airline statusline configuration
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 set laststatus=2
 
 " disable airline plugins that are slow
