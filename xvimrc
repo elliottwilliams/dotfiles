@@ -1,0 +1,16 @@
+" XVim configuration
+
+" search
+set ignorecase
+set hlsearch
+set incsearch
+set smartcase
+
+" visual
+set number
+set relativenumber
+set noblinkcursor
+
+" maps
+nmap ,n :nohlsearch<cr>
+nmap <space> *N
