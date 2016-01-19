@@ -2,6 +2,12 @@ alias lsrc='lsrc -B cs.purdue.edu'
 alias mkrc='mkrc -B cs.purdue.edu'
 alias rcup='rcup -B cs.purdue.edu'
 
+# CS 422 designed port
+export CSPORT=50077
+
+# CS 354 Xinu path extensions
+export PATH="$PATH:/p/xinu/bin:/homes/cs354/bin"
+
 if [ -z "$TMUX" ]; then
     export TERM=xterm-256color
 fi
