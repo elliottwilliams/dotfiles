@@ -91,7 +91,7 @@ bindkey "^P" up-line-or-search
 alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
-alias mutt='cd ~/Desktop && mutt'
+alias xclip='xclip -selection clipboard' # because the only time i'm using xclip is to access the linux desktop clipboard
 
 export EDITOR=vim
 
