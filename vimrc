@@ -108,8 +108,10 @@ autocmd FileType nerdtree set relativenumber
 set tags=tags;/ " will search for 'tags' file from current directory to /
 nnoremap <c-]> g<c-]>   " swap tag jump commands to show a menu on multiple tags
 vnoremap <c-]> g<c-]>
-nnoremap g<c-]> <c-]>
-vnoremap g<c-]> <c-]>
+" g + c-] will jump to the tag (prompting for selection if necessary) in a
+" vsplit to the right of the current window
+nnoremap g<c-]> :rightbelow vert stselect <c-r><c-w><cr>
+vnoremap g<c-]> :rightbelow vert stselect <c-r><c-w><cr>
 
 " ctrlp config -- file finder
 let g:ctrlp_max_files = 0
