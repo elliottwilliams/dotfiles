@@ -20,6 +20,7 @@ Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'keith/swift.vim'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -110,8 +111,8 @@ nnoremap <c-]> g<c-]>   " swap tag jump commands to show a menu on multiple tags
 vnoremap <c-]> g<c-]>
 " g + c-] will jump to the tag (prompting for selection if necessary) in a
 " vsplit to the right of the current window
-nnoremap g<c-]> :rightbelow vert stselect <c-r><c-w><cr>
-vnoremap g<c-]> :rightbelow vert stselect <c-r><c-w><cr>
+nnoremap g<c-]> :rightbelow vert stjump <c-r><c-w><cr>
+vnoremap g<c-]> :rightbelow vert stjump <c-r><c-w><cr>
 
 " ctrlp config -- file finder
 let g:ctrlp_max_files = 0
