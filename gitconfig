@@ -9,3 +9,5 @@
     graph = log --graph --branches --decorate --oneline
 [push]
 	default = simple
+[core]
+	excludesfile = ~/.gitignore
