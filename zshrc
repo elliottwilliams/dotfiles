@@ -92,7 +92,7 @@ alias tmux='tmux -2' # force tmux to use 256-colors
 alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # latest download
 alias t='tmux a'
 alias xclip='xclip -selection clipboard' # because the only time i'm using xclip is to access the linux desktop clipboard
-alias b2mm='dns-sd -B _ssh._tcp | grep -e "[0-9]\+\.members\.btmm\.icloud\.com"' # scan for multicast ssh connections, which reveals back to my mac domains
+alias btmm='dns-sd -B _ssh._tcp | grep -oe "[0-9]\+\.members\.btmm\.icloud\.com"' # scan for multicast ssh connections, which reveals back to my mac domains
 
 export EDITOR=vim
 
