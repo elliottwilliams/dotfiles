@@ -159,3 +159,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 " gitgutter config - prevent it from lagging vim on buffer switch
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+
+" ack lookup -- don't <cr> on these so that I can adjust the command before
+" running
+nnoremap <leader>k  :!ack '<c-r><c-w>'<left>
+vnoremap <leader>k  :!ack '<c-r><c-w>'<left>
