@@ -11,7 +11,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jnurmine/Zenburn'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jlanzarotta/bufexplorer'
@@ -21,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'keith/swift.vim'
+Plugin 'vim-utils/vim-man'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -129,8 +131,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 " column ruler: highlights the character that goes past the 80th column.
 set colorcolumn=81,131
 set winwidth=84
-"set tw=79
-"set formatoptions+=t
+set tw=79
+set formatoptions+=t
+set formatoptions-=o
 
 " vim-airline statusline configuration
 let g:airline_powerline_fonts = 0
