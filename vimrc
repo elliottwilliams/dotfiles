@@ -44,6 +44,12 @@ set foldlevelstart=20       " auto-unfold up to 20 level of folds
 set hidden                  " allows buffers to be hidden w/o writing changes
 let g:mapleader=","           " it's better mapped to here
 set encoding=utf-8
+set splitright              " open vsplits to the right, by default
+
+" Use extended mouse mode, even in tmux
+if &term =~ '^screen'
+    set ttymouse=xterm2
+endif
 
 " Indentation
 set tabstop=4
@@ -55,9 +61,9 @@ set copyindent
 
 " MacVim-specific 
 if has("gui_running")
-  set guifont=Monaco:h10
-  set guioptions=gm
-  set noantialias
+    set guifont=Monaco:h10
+    set guioptions=gm
+    set noantialias
 endif
 
 " make backspace do the right thing
@@ -122,6 +128,10 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_lazy_update = 100 " try to reduce lagginess in ym
 
+" ctrlp tag switching (use the same ctrlp shortcut, but leader first)
+nnoremap <leader><c-p> :CtrlPTag<CR>
+vnoremap <leader><c-p> :CtrlPTag<CR>
+
 " ctrlp-funky function jump
 nnoremap <leader>j :CtrlPFunky<CR>
 
@@ -129,11 +139,13 @@ nnoremap <leader>j :CtrlPFunky<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " column ruler: highlights the character that goes past the 80th column.
-set colorcolumn=81,131
+set colorcolumn=81
 set winwidth=84
 set tw=79
 set formatoptions+=t
-set formatoptions-=o
+
+" when opening things, after plugins mess with formatoptions, set ours
+autocmd BufNewFile,BufRead * setlocal formatoptions-=o
 
 " vim-airline statusline configuration
 let g:airline_powerline_fonts = 0
@@ -167,3 +179,9 @@ let g:gitgutter_eager = 0
 " running
 nnoremap <leader>k  :!ack '<c-r><c-w>'<left>
 vnoremap <leader>k  :!ack '<c-r><c-w>'<left>
+
+" replace builtin man page lookup with :Vman, which will open the man page in a
+" vertical split. move the cursor back before the word, and position it so that
+" the section number can be added in a single keystroke.
+nnoremap K  :Vman <c-r><c-w><s-left><left><space>
+vnoremap K  :Vman <c-r><c-w><s-left><left><space>
