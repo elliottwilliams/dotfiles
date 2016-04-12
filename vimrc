@@ -28,6 +28,8 @@ Plugin 'vim-utils/vim-man'
 Plugin 'lervag/vim-latex'
 Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,3 +169,6 @@ let g:gitgutter_eager = 0
 " running
 nnoremap <leader>k  :!ack '<c-r><c-w>'<left>
 vnoremap <leader>k  :!ack '<c-r><c-w>'<left>
+
+" filetype autocmds -- associate filetypes with syntaxes
+au BufRead,BufNewFile *.kit setfiletype html
