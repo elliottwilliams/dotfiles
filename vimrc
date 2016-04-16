@@ -29,7 +29,6 @@ Plugin 'lervag/vim-latex'
 Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,7 +109,7 @@ let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
 
 " NERDTree setup
-map <F7> :NERDTreeToggle<CR>
+map <F7> :NERDTree<CR>
 let NERDTreeIgnore=['\.pyc']
 let NERDTreeWinSize=40
 autocmd FileType nerdtree set relativenumber
