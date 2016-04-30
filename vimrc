@@ -147,7 +147,7 @@ set tw=79
 set formatoptions+=t
 
 " when opening things, after plugins mess with formatoptions, set ours
-autocmd BufNewFile,BufRead * setlocal formatoptions-=o
+autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
 " vim-airline statusline configuration
 let g:airline_powerline_fonts = 0
