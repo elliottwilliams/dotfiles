@@ -11,3 +11,9 @@ let b:syntastic_python_flake8_show_pep8='true'
 let b:syntastic_python_flake8_max_line_length='131'
 
 set foldlevelstart=20
+
+" rathan than binding K to Vman like it is in my vimrc, bind it to pydoc. we
+" will prompt for a python module or class, since what the user needs to look
+" up will likely *not* be the current word
+nmap K  :Pydoc <space>
+vmap K  :Pydoc <space>
