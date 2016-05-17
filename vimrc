@@ -25,6 +25,7 @@ Plugin 'keith/swift.vim'
 Plugin 'vim-utils/vim-man'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/pydoc.vim'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -189,5 +190,5 @@ au BufRead,BufNewFile *.kit setfiletype html
 " replace builtin man page lookup with :Vman, which will open the man page in a
 " vertical split. move the cursor back before the word, and position it so that
 " the section number can be added in a single keystroke.
-nnoremap K  :Vman <c-r><c-w><s-left><left><space>
-vnoremap K  :Vman <c-r><c-w><s-left><left><space>
+nmap K  :Vman <c-r><c-w><s-left><left><space>
+vmap K  :Vman <c-r><c-w><s-left><left><space>
