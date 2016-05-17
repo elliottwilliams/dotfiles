@@ -99,3 +99,6 @@ export EDITOR=vim
 # url encode and decode
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
+# so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
+stty -ixon

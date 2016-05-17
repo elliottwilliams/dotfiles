@@ -23,6 +23,8 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'keith/swift.vim'
 Plugin 'vim-utils/vim-man'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
