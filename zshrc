@@ -93,6 +93,7 @@ alias dl="ls -t ~/Downloads | head -n 1 | sed -e 's:^:'"$HOME"'/Downloads/:'" # 
 alias t='tmux a'
 alias xclip='xclip -selection clipboard' # because the only time i'm using xclip is to access the linux desktop clipboard
 alias btmm='dns-sd -B _ssh._tcp | grep -oe "[0-9]\+\.members\.btmm\.icloud\.com"' # scan for multicast ssh connections, which reveals back to my mac domains
+alias ql='qlmanage -p 2>/dev/null'
 
 export EDITOR=vim
 
@@ -101,4 +102,6 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
-stty -ixon
+stty sane
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
