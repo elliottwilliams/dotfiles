@@ -1,8 +1,0 @@
-# host-specific zsh config
-
-export NVM_DIR="/Users/herooftime/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/herooftime/.sdkman"
-[[ -s "/Users/herooftime/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/herooftime/.sdkman/bin/sdkman-init.sh"
