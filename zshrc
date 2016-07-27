@@ -105,3 +105,8 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 stty sane
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export NVM_DIR="/Users/herooftime/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/herooftime/.gvm/bin/gvm-init.sh" ]] && source "/Users/herooftime/.gvm/bin/gvm-init.sh"

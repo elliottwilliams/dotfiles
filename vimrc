@@ -18,20 +18,22 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kshenoy/vim-signature'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'keith/swift.vim'
 Plugin 'vim-utils/vim-man'
 Plugin 'mileszs/ack.vim'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/pydoc.vim'
+Plugin 'Yggdroot/indentLine'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
 Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'AndrewRadev/vim-eco'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -112,7 +114,7 @@ let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
 
 " NERDTree setup
-map <F7> :NERDTree<CR>
+map <F7> :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.pyc']
 let NERDTreeWinSize=40
 autocmd FileType nerdtree set relativenumber
@@ -154,6 +156,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 " vim-airline statusline configuration
 let g:airline_powerline_fonts = 0
 set laststatus=2
+let g:airline#extensions#branch#enabled = 1
 
 " disable airline plugins that are slow
 let g:airline#extensions#tagbar#enabled = 0
@@ -192,3 +195,6 @@ au BufRead,BufNewFile *.kit setfiletype html
 " the section number can be added in a single keystroke.
 nmap K  :Vman <c-r><c-w><s-left><left><space>
 vmap K  :Vman <c-r><c-w><s-left><left><space>
+
+" disable tablines by default
+let g:indentLine_enabled = 0
