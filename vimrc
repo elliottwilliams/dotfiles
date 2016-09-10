@@ -8,25 +8,30 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Feature plugins, ordered in order of importance to me
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'kshenoy/vim-signature'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'keith/swift.vim'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'vim-airline/vim-airline'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-utils/vim-man'
 Plugin 'mileszs/ack.vim'
-"Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-scripts/pydoc.vim'
-Plugin 'Yggdroot/indentLine'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
+Plugin 'tpope/vim-sleuth'
+Plugin 'farseer90718/vim-taskwarrior'
+
+" Slated for deletion 2016-07-27
+"Plugin 'majutsushi/tagbar'
+"Plugin 'kshenoy/vim-signature'
+
+" Style plugins
+Plugin 'jnurmine/Zenburn'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -34,6 +39,8 @@ Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'AndrewRadev/vim-eco'
+Plugin 'keith/swift.vim'
+Plugin 'vim-scripts/pydoc.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,9 +65,9 @@ if &term =~ '^screen'
 endif
 
 " Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set copyindent
