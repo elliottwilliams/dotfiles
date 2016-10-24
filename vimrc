@@ -23,7 +23,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
 Plugin 'tpope/vim-sleuth'
-Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'vim-scripts/Align'
 
 " Slated for deletion 2016-07-27
 "Plugin 'majutsushi/tagbar'
