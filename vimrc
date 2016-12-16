@@ -24,6 +24,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
 Plugin 'tpope/vim-sleuth'
 Plugin 'vim-scripts/Align'
+Plugin 'wakatime/vim-wakatime'
 
 " Slated for deletion 2016-07-27
 "Plugin 'majutsushi/tagbar'
