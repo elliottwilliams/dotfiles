@@ -11,3 +11,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
+[http "https://git.pqgd.flynnhub.com"]
+	sslCAInfo = /Users/herooftime/.flynn/ca-certs/flynn-1480715361.pem
+[credential "https://git.pqgd.flynnhub.com"]
+	helper = /Users/herooftime/Desktop/flynn git-credentials

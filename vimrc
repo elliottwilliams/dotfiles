@@ -34,7 +34,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax-specific plugins
-Plugin 'lervag/vim-latex'
+"Plugin 'lervag/vim-latex'
 Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
 Plugin 'hynek/vim-python-pep8-indent'
