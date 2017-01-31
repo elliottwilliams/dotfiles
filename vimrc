@@ -25,10 +25,7 @@ Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
 Plugin 'tpope/vim-sleuth'
 Plugin 'vim-scripts/Align'
 Plugin 'wakatime/vim-wakatime'
-
-" Slated for deletion 2016-07-27
-"Plugin 'majutsushi/tagbar'
-"Plugin 'kshenoy/vim-signature'
+Plugin 'junegunn/vim-easy-align'
 
 " Style plugins
 Plugin 'jnurmine/Zenburn'
@@ -75,9 +72,8 @@ set copyindent
 
 " MacVim-specific 
 if has("gui_running")
-    set guifont=Monaco:h10
+    set guifont=AnonymousPro:h13
     set guioptions=gm
-    set noantialias
 endif
 
 " make backspace do the right thing
@@ -206,3 +202,9 @@ vmap K  :Vman <c-r><c-w><s-left><left><space>
 
 " disable tablines by default
 let g:indentLine_enabled = 0
+
+" EasyAlign mappings
+" start in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" start on a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
