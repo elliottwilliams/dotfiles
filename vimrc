@@ -32,7 +32,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax-specific plugins
-"Plugin 'lervag/vim-latex'
+Plugin 'lervag/vim-latex'
 Plugin 'groenewege/vim-less'
 Plugin 'vim-scripts/mako.vim'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -51,10 +51,11 @@ set rnu                     " relative line numbering
 syntax enable               " syntax highlighting
 set nowrap                  " disable wrap
 set mouse=a                 " enable mouse mode
+set foldmethod=indent       " fold anything predictably
 set foldlevelstart=20       " auto-unfold up to 20 level of folds
 set hidden                  " allows buffers to be hidden w/o writing changes
-let g:mapleader=","           " it's better mapped to here
-set encoding=utf-8
+let g:mapleader=","         " it's better mapped to here
+set encoding=utf-8          " vim defaults to $LANG or latin1
 set splitright              " open vsplits to the right, by default
 
 " Use extended mouse mode, even in tmux
@@ -191,8 +192,9 @@ let g:gitgutter_eager = 0
 nnoremap <leader>k  :!ack '<c-r><c-w>'<left>
 vnoremap <leader>k  :!ack '<c-r><c-w>'<left>
 
-" filetype autocmds -- associate filetypes with syntaxes
+" filetype recognition
 au BufRead,BufNewFile *.kit setfiletype html
+let g:tex_flavor = "latex"  " default to latex filetype
 
 " replace builtin man page lookup with :Vman, which will open the man page in a
 " vertical split. move the cursor back before the word, and position it so that
