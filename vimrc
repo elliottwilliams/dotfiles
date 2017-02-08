@@ -23,7 +23,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
 Plugin 'tpope/vim-sleuth'
-Plugin 'vim-scripts/Align'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/vim-easy-align'
 
