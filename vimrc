@@ -22,9 +22,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
-Plugin 'tpope/vim-sleuth'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-dispatch'
 
 " Style plugins
 Plugin 'jnurmine/Zenburn'
@@ -56,6 +56,7 @@ set hidden                  " allows buffers to be hidden w/o writing changes
 let g:mapleader=","         " it's better mapped to here
 set encoding=utf-8          " vim defaults to $LANG or latin1
 set splitright              " open vsplits to the right, by default
+set exrc                    " look for config files in current directory
 
 " Use extended mouse mode, even in tmux
 if &term =~ '^screen'
