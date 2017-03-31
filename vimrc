@@ -29,6 +29,7 @@ Plugin 'tpope/vim-dispatch'
 " Style plugins
 Plugin 'jnurmine/Zenburn'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -71,12 +72,6 @@ set expandtab
 set autoindent
 set copyindent
 
-" MacVim-specific 
-if has("gui_running")
-    set guifont=AnonymousPro:h13
-    set guioptions=gm
-endif
-
 " make backspace do the right thing
 set backspace=indent,eol,start
 
@@ -108,10 +103,16 @@ nmap <F6> :CtrlPBuffer<CR>
 nnoremap <leader>c :close<CR>
 nnoremap <leader>C :Bclose<CR> :close<CR>
 
-" color scheme
-colors zenburn
-highlight clear SignColumn  " something's been messing with the sign column
-                            " color...might be removable in the future
+" appearance
+highlight clear SignColumn 
+if has("gui_running")
+  set guifont=AnonymousPro:h13
+  set guioptions=gm
+  set background=light
+  colors solarized
+else
+  colors zenburn
+endif
 
 " tagbar setup 
 map <F8> :TagbarToggle<CR>

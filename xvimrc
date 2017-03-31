@@ -14,3 +14,16 @@ set noblinkcursor
 " maps
 nmap ,n :nohlsearch<cr>
 nmap <space> *N
+
+" set search highlight color
+highlight Search guibg=#838383
+
+" window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nmap ,c <c-w>c
+
+" shortcut to jump to definition in a new split
+nmap g<c-]> :vsplit :xccmd jumpToDefinition<cr><c-w>w
