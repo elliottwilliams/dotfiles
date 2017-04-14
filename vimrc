@@ -30,6 +30,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'jnurmine/Zenburn'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
 
 " Syntax-specific plugins
 Plugin 'lervag/vim-latex'
@@ -111,7 +112,9 @@ if has("gui_running")
   set background=light
   colors solarized
 else
-  colors zenburn
+  " colors zenburn
+  set background=light
+  colors pencil
 endif
 
 " tagbar setup 
@@ -163,6 +166,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 let g:airline_powerline_fonts = 0
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
+let g:airline_theme = 'pencil'
 
 " disable airline plugins that are slow
 let g:airline#extensions#tagbar#enabled = 0
