@@ -1,51 +1,46 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Feature plugins, ordered in order of importance to me
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'vim-airline/vim-airline'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'vim-utils/vim-man'
-Plugin 'mileszs/ack.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'Yggdroot/indentLine'    " use :IndentLinesToggle
-Plugin 'wakatime/vim-wakatime'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'tpope/vim-dispatch'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'airblade/vim-gitgutter'
+Plug 'wesQ3/vim-windowswap'
+Plug 'Yggdroot/indentLine'    " use :IndentLinesToggle
+Plug 'wakatime/vim-wakatime'
+Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+
 
 " Style plugins
-Plugin 'jnurmine/Zenburn'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'reedes/vim-colors-pencil'
+Plug 'jnurmine/Zenburn'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 
 " Syntax-specific plugins
-Plugin 'lervag/vim-latex'
-Plugin 'groenewege/vim-less'
-Plugin 'vim-scripts/mako.vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'AndrewRadev/vim-eco'
-Plugin 'keith/swift.vim'
-Plugin 'vim-scripts/pydoc.vim'
+Plug 'lervag/vim-latex'
+Plug 'groenewege/vim-less'
+Plug 'vim-scripts/mako.vim'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'AndrewRadev/vim-eco'
+Plug 'keith/swift.vim'
+Plug 'vim-scripts/pydoc.vim'
+"Plug 'landaire/deoplete-swift'
+Plug 'msanders/cocoa.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" END Vundle, BEGIN all other configuration
+" Initialize plugin system
+call plug#end()
 
 " General settings
 set rnu                     " relative line numbering
@@ -59,11 +54,7 @@ let g:mapleader=","         " it's better mapped to here
 set encoding=utf-8          " vim defaults to $LANG or latin1
 set splitright              " open vsplits to the right, by default
 set exrc                    " look for config files in current directory
-
-" Use extended mouse mode, even in tmux
-if &term =~ '^screen'
-    set ttymouse=xterm2
-endif
+set clipboard=unnamed       " use system clipboard
 
 " Indentation
 set tabstop=2
@@ -94,11 +85,11 @@ nmap <Tab>   :bn<CR>
 nmap <S-Tab> :bp<CR>
 nnoremap <leader>l :e#<CR>
 nnoremap <leader>q :Bclose<CR>
-nnoremap <leader>m :CtrlPBuffer<CR>
+nnoremap <leader>m :Buffers<CR>
 
 " choose buffer easily from buffers menu
 nmap <F5> :BufExplorer<CR>
-nmap <F6> :CtrlPBuffer<CR>
+nmap <F6> :Buffers<CR>
 
 " close windows easily
 nnoremap <leader>c :close<CR>
@@ -107,20 +98,15 @@ nnoremap <leader>C :Bclose<CR> :close<CR>
 " appearance
 highlight clear SignColumn 
 if has("gui_running")
-  set guifont=AnonymousPro:h13
+  set guifont=AnonymousPro:h15
   set guioptions=gm
-  set background=light
-  colors solarized
-else
-  " colors zenburn
-  set background=light
-  colors pencil
 endif
+set background=light
+colors tomorrow-night
 
-" tagbar setup 
-map <F8> :TagbarToggle<CR>
-let g:tagbar_autoclose = 0
-let g:tagbar_autofocus = 1
+" fzf file finder
+nnoremap <c-p> :Files<CR>
+vnoremap <c-p> :Files<CR>
 
 " NERDTree setup
 map <F7> :NERDTreeFocus<CR>
@@ -137,25 +123,19 @@ vnoremap <c-]> g<c-]>
 nnoremap g<c-]> :rightbelow vert stjump <c-r><c-w><cr>
 vnoremap g<c-]> :rightbelow vert stjump <c-r><c-w><cr>
 
-" ctrlp config -- file finder
-let g:ctrlp_max_files = 0
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_lazy_update = 100 " try to reduce lagginess in ym
+" tag switching
+nnoremap <leader><c-p> :Tags<CR>
+vnoremap <leader><c-p> :Tags<CR>
 
-" ctrlp tag switching (use the same ctrlp shortcut, but leader first)
-nnoremap <leader><c-p> :CtrlPTag<CR>
-vnoremap <leader><c-p> :CtrlPTag<CR>
-
-" ctrlp-funky function jump
-nnoremap <leader>j :CtrlPFunky<CR>
+" tags in the current buffer
+nnoremap <leader>j :BTags<CR>
 
 " ignore files and directories
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " column ruler: highlights the character that goes past the 80th column.
 set colorcolumn=81
-set winwidth=84
+set winwidth=87
 set tw=79
 set formatoptions+=t
 
@@ -180,9 +160,6 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_python_pep8_args = ['--ignore=E501']
 
-" syntax associations
-au BufNewFile,BufRead *.mako setlocal syntax=mako
-"
 " tabline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
@@ -194,11 +171,14 @@ let g:gitgutter_eager = 0
 
 " ack lookup -- don't <cr> on these so that I can adjust the command before
 " running
-nnoremap <leader>k  :!ack '<c-r><c-w>'<left>
-vnoremap <leader>k  :!ack '<c-r><c-w>'<left>
+nnoremap <leader>k  :Ack '<c-r><c-w>'<left>
+vnoremap <leader>k  :Ack '<c-r><c-w>'<left>
+let g:ackprg = 'ag --nogroup --nocolor --column' " use ag, which is better than ack, which is better than grep
+let g:ack_use_dispatch = 1                       " async job control
 
 " filetype recognition
 au BufRead,BufNewFile *.kit setfiletype html
+au BufNewFile,BufRead *.mako setlocal syntax=mako
 let g:tex_flavor = "latex"  " default to latex filetype
 
 " replace builtin man page lookup with :Vman, which will open the man page in a
@@ -215,3 +195,9 @@ let g:indentLine_enabled = 0
 xmap ga <Plug>(EasyAlign)
 " start on a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" deoplete (keyword completion) settings
+let g:deoplete#enable_at_startup = 1
+
+" use vim-dispatch to run xcodebuild commands
+let g:xcode_runner_command = ':Start! {cmd}\'
