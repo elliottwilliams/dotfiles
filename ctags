@@ -1,9 +1,26 @@
---langdef=Swift 
---langmap=Swift:+.swift 
---regex-swift=/(var|let)[ \t]+([^:=]+).*$/\2/,variable/ 
---regex-swift=/func[ \t]+([^\(\)]+)\([^\(\)]*\)/\1/,function/ 
---regex-swift=/class[ \t]+([^:\{]+).*$/\1/,class/ 
---regex-swift=/protocol[ \t]+([^:\{]+).*$/\1/,protocol/
+--langdef=ObjectiveC
+--langmap=ObjectiveC:.m..mm..h
+--regex-ObjectiveC=/\@interface[[:space:]]+([[:alnum:]_]+)/\1/i,interface/
+--regex-ObjectiveC=/\@implementation[[:space:]]+([[:alnum:]_]+)/\1/I,implementation/
+--regex-ObjectiveC=/\@protocol[[:space:]]+([[:alnum:]_]+)/\1/P,protocol/
+--regex-ObjectiveC=/\@property[[:space:]]+\([[:alnum:],[:space:]]+\)[[:space:]]+[[:alnum:]_]+[[:space:]]+\*?([[:alnum:]_]+)/\1/p,property/
+--regex-ObjectiveC=/[-+][[:space:]]*\([[:alpha:]_][^)]*\)[[:space:]]*([[:alpha:]_][^:;{]+).*/\1\2/M,method definition/
+--regex-ObjectiveC=/^[^#@[:space:]][^=]*[[:space:]]([[:alpha:]_][[:alnum:]_]*)[[:space:]]*=/\1/c,constant/
+--regex-ObjectiveC=/^[[:space:]]*typedef[[:space:]][^;]+[[:space:]]([[:alpha:]_][[:alnum:]]*)[[:space:]]*;/\1/t,typedef/
+--regex-ObjectiveC=/^[[:space:]]*NS_ENUM\([[:alnum:]]+[[:space:]]*,[[:space:]]([[:alnum:]]+)\)/\1/e,enum/
+--regex-ObjectiveC=/^#pragma[[:space:]]+mark[[:space:]]+-?[[:space:]]+([[:alnum:][:space:]]+)/\1/g,pragma/
+
+--langdef=Swift
+--langmap=Swift:+.swift
+--regex-swift=/enum[ \t]+([^\{\}]+).*$/\1/n,enum,enums/
+--regex-swift=/typealias[ \t]+([^:=]+).*$/\1/t,typealias,typealiases/
+--regex-swift=/protocol[ \t]+([^:\{]+).*$/\1/p,protocol,protocols/
+--regex-swift=/struct[ \t]+([^:\{]+).*$/\1/s,struct,structs/
+--regex-swift=/class[ \t]+([^:\{]+).*$/\1/c,class,classes/
+--regex-swift=/func[ \t]+([^\(\)]+)\([^\(\)]*\)/\1/f,function,functions/
+--regex-swift=/\@objc\(([[:alpha:]]+):/\1/o,funcalias,funcaliases/
+--regex-swift=/(var|let)[ \t]+([^:=]+).*$/\2/v,variable,variables/
+--regex-swift=/^[ \t]*extension[ \t]+([^:\{]+).*$/\1/e,extension,extensions/
 
 --langdef=groovy
 --langmap=groovy:.groovy

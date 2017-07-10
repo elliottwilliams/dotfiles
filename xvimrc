@@ -16,7 +16,7 @@ nmap ,n :nohlsearch<cr>
 nmap <space> *N
 
 " set search highlight color
-highlight Search guibg=#838383
+highlight Search guibg=#d6d6d6
 
 " window navigation
 nnoremap <c-l> <c-w>l
