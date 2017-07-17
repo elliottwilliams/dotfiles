@@ -19,7 +19,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-
+Plug 'gfontenot/vim-xcode'
 
 " Style plugins
 Plug 'jnurmine/Zenburn'
@@ -139,6 +139,9 @@ set winwidth=87
 set tw=79
 set formatoptions+=t
 
+" highlight the current line
+set cursorline
+
 " when opening things, after plugins mess with formatoptions, set ours
 autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
@@ -201,3 +204,10 @@ let g:deoplete#enable_at_startup = 1
 
 " use vim-dispatch to run xcodebuild commands
 let g:xcode_runner_command = ':Start! {cmd}\'
+
+" watch for changes to files _only in a gui_
+" this behavior works nicely when i'm working back and forth from an IDE
+if has("gui_vimr") || has("gui_running")
+  au FocusGained * checktime " VimR doesn't support this yet - qvacua/vimr#368
+  au InsertEnter * checktime
+endif
