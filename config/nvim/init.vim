@@ -176,6 +176,10 @@ vnoremap <leader>k  :Ack '<c-r><c-w>'<left>
 let g:ackprg = 'ag --nogroup --nocolor --column' " use ag, which is better than ack, which is better than grep
 let g:ack_use_dispatch = 1                       " async job control
 
+" support searching with :grep using ag
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 " filetype recognition
 au BufRead,BufNewFile *.kit setfiletype html
 au BufNewFile,BufRead *.mako setlocal syntax=mako
