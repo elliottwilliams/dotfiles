@@ -215,3 +215,7 @@ if has("gui_vimr") || has("gui_running")
   au FocusGained * checktime " VimR doesn't support this yet - qvacua/vimr#368
   au InsertEnter * checktime
 endif
+
+" use an RVM-generated wrapper for neovim's ruby provider
+" as of 20170711, this isn't in the latest release of neovim yet
+let g:ruby_host_prog = substitute(exepath('neovim-ruby-host'), 'bin/neovim-ruby-host', 'wrappers/neovim-ruby-host', '')
