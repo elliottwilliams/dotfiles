@@ -1,0 +1,56 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export EDITOR:nvim
+SETUVAR VISUAL:nvim
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
+SETUVAR --export __fish_git_prompt_char_dirtystate:\x2b
+SETUVAR --export __fish_git_prompt_char_stagedstate:\u2022
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr_be:bundle\x20exec
+SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_gc:git\x20commit
+SETUVAR _fish_abbr_gch:git\x20checkout
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gm:git\x20merge
+SETUVAR _fish_abbr_gp:git\x20push
+SETUVAR _fish_abbr_gr:git\x20rebase
+SETUVAR _fish_abbr_grm:git\x20rm
+SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_pi:bundle\x20exec\x20pod\x20install
+SETUVAR _fish_abbr_rb:review\x2dbranch
+SETUVAR _fish_abbr_ts:tig\x20status
+SETUVAR _fish_abbr_vim:nvim
+SETUVAR abbrs_initialized:\x1d
+SETUVAR fish_color_autosuggestion:969896
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:c397d8
+SETUVAR fish_color_comment:e7c547
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:c397d8
+SETUVAR fish_color_error:d54e53
+SETUVAR fish_color_escape:bryellow\x1e\x2d\x2dbold
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:bryellow
+SETUVAR fish_color_param:7aa6da
+SETUVAR fish_color_quote:b9ca4a
+SETUVAR fish_color_redirection:70c0b1
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:\x1d
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_abbreviations:ga\x20git\x20add\x1egs\x20git\x20status\x1evim\x20nvim\x1ets\x20tig\x20status\x1egr\x20git\x20rebase\x1egc\x20git\x20commit\x1egm\x20git\x20merge\x1erb\x20review\x2dbranch\x1egd\x20git\x20diff\x1egp\x20git\x20push\x1egch\x20git\x20checkout\x1epi\x20bundle\x20exec\x20pod\x20install\x1egrm\x20git\x20rm\x1ebe\x20bundle\x20exec
+SETUVAR fish_user_paths:/Users/emw/\x2efzf/bin\x1e/usr/local/sbin/
+SETUVAR swiftlint_ex:/Users/emw/y/SwiftLintYelpFork/\x2ebuild/x86_64\x2dapple\x2dmacosx10\x2e10/debug/swiftlint
