@@ -1,10 +1,11 @@
 [user]
-  email = emw@yelp.com
-  name = Elliott Williams
+	email = emw@yelp.com
+	name = Elliott Williams
 [alias]
   st = status
   l = !git --no-pager log --pretty=oneline --abbrev-commit --max-count=10
   branchname = rev-parse --abbrev-ref HEAD
+  whoami = rev-parse --abbrev-ref HEAD
   diffstat = !git --no-pager diff --stat
   graph = log --graph --branches --decorate --oneline
 [push]
@@ -13,3 +14,8 @@
   excludesfile = ~/.gitignore
   editor = nvim
   whitespace = indent-with-non-tab
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
