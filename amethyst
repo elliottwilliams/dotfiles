@@ -1,7 +1,0 @@
-{
-    "floating": [
-        "com.apple.systempreferences",
-        "com.apple.stickies"
-    ],
-    "mouse-follows-focus": true
-}

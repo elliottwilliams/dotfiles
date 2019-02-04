@@ -1,0 +1,2 @@
+set mouse = yes
+bind status	C	!git commit -v

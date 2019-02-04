@@ -4,23 +4,19 @@ filetype off                  " required
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Feature plugins, ordered in order of importance to me
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
+Plug 'ap/vim-buftabline'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'airblade/vim-gitgutter'
 Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'    " use :IndentLinesToggle
-Plug 'wakatime/vim-wakatime'
 Plug 'junegunn/vim-easy-align'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-dispatch'
-Plug 'radenling/vim-dispatch-neovim'
-Plug 'gfontenot/vim-xcode'
 Plug 'brooth/far.vim'
+Plug 'sbdchd/neoformat'
 
 " Style plugins
 Plug 'jnurmine/Zenburn'
@@ -28,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'reedes/vim-colors-pencil'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'posva/vim-vue'
 
 " Syntax-specific plugins
 Plug 'lervag/vim-latex'
@@ -37,8 +34,7 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'AndrewRadev/vim-eco'
 Plug 'keith/swift.vim'
 Plug 'vim-scripts/pydoc.vim'
-"Plug 'landaire/deoplete-swift'
-Plug 'msanders/cocoa.vim'
+Plug 'dag/vim-fish'
 
 " Initialize plugin system
 call plug#end()
@@ -98,10 +94,6 @@ nnoremap <leader>C :Bclose<CR> :close<CR>
 
 " appearance
 highlight clear SignColumn 
-if has("gui_running")
-  set guifont=AnonymousPro:h15
-  set guioptions=gm
-endif
 set background=light
 colors tomorrow-night
 
@@ -135,9 +127,9 @@ nnoremap <leader>j :BTags<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " column ruler: highlights the character that goes past the 80th column.
-set colorcolumn=81
-set winwidth=87
-set tw=79
+set colorcolumn=121
+"set winwidth=87
+"set tw=79
 set formatoptions+=t
 
 " highlight the current line
@@ -145,29 +137,6 @@ set cursorline
 
 " when opening things, after plugins mess with formatoptions, set ours
 autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-
-" vim-airline statusline configuration
-let g:airline_powerline_fonts = 0
-set laststatus=2
-let g:airline#extensions#branch#enabled = 1
-let g:airline_theme = 'pencil'
-
-" disable airline plugins that are slow
-let g:airline#extensions#tagbar#enabled = 0
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-
-let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_python_pep8_args = ['--ignore=E501']
-
-" tabline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#buffer_nr_show = 0
 
 " gitgutter config - prevent it from lagging vim on buffer switch
 let g:gitgutter_realtime = 0
@@ -187,8 +156,10 @@ set grepformat=%f:%l:%c:%m
 " filetype recognition
 au BufRead,BufNewFile *.kit set ft=html
 au BufNewFile,BufRead *.mako setlocal syntax=mako
-au BufNewFile,BufRead Podfile set ft=ruby
-au BufNewFile,BufRead *.podspec set ft=ruby
+au BufRead,BufNewFile *.podspec setfiletype ruby
+au BufRead,BufNewFile Podfile setfiletype ruby
+au BufRead,BufNewFile Jenkinsfile setfiletype groovy
+au BufRead,BufNewFile *.jenkinsfile setfiletype groovy 
 let g:tex_flavor = "latex"  " default to latex filetype
 
 " replace builtin man page lookup with :Vman, which will open the man page in a
@@ -218,7 +189,3 @@ if has("gui_vimr") || has("gui_running")
   au FocusGained * checktime " VimR doesn't support this yet - qvacua/vimr#368
   au InsertEnter * checktime
 endif
-
-" use an RVM-generated wrapper for neovim's ruby provider
-" as of 20170711, this isn't in the latest release of neovim yet
-let g:ruby_host_prog = substitute(exepath('neovim-ruby-host'), 'bin/neovim-ruby-host', 'wrappers/neovim-ruby-host', '')
