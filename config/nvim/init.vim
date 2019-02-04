@@ -16,10 +16,11 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'    " use :IndentLinesToggle
 Plug 'wakatime/vim-wakatime'
 Plug 'junegunn/vim-easy-align'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'gfontenot/vim-xcode'
+Plug 'brooth/far.vim'
 
 " Style plugins
 Plug 'jnurmine/Zenburn'
@@ -184,8 +185,10 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " filetype recognition
-au BufRead,BufNewFile *.kit setfiletype html
+au BufRead,BufNewFile *.kit set ft=html
 au BufNewFile,BufRead *.mako setlocal syntax=mako
+au BufNewFile,BufRead Podfile set ft=ruby
+au BufNewFile,BufRead *.podspec set ft=ruby
 let g:tex_flavor = "latex"  " default to latex filetype
 
 " replace builtin man page lookup with :Vman, which will open the man page in a
