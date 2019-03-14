@@ -24,9 +24,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'reedes/vim-colors-pencil'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'posva/vim-vue'
+Plug 'dracula/vim', { 'as': 'daracula' } 
 
 " Syntax-specific plugins
+Plug 'posva/vim-vue'
 Plug 'lervag/vim-latex'
 Plug 'groenewege/vim-less'
 Plug 'vim-scripts/mako.vim'
@@ -95,7 +96,7 @@ nnoremap <leader>C :Bclose<CR> :close<CR>
 " appearance
 highlight clear SignColumn 
 set background=light
-colors tomorrow-night
+colors dracula
 
 " fzf file finder
 nnoremap <c-p> :Files<CR>
@@ -154,7 +155,7 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " filetype recognition
-au BufRead,BufNewFile *.kit setfiletype html
+au BufRead,BufNewFile *.kit set ft=html
 au BufNewFile,BufRead *.mako setlocal syntax=mako
 au BufRead,BufNewFile *.podspec setfiletype ruby
 au BufRead,BufNewFile Podfile setfiletype ruby
