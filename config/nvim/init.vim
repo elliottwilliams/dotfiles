@@ -155,7 +155,7 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
 " filetype recognition
-au BufRead,BufNewFile *.kit setfiletype html
+au BufRead,BufNewFile *.kit set ft=html
 au BufNewFile,BufRead *.mako setlocal syntax=mako
 au BufRead,BufNewFile *.podspec setfiletype ruby
 au BufRead,BufNewFile Podfile setfiletype ruby
